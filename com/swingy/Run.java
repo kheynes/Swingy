@@ -9,16 +9,28 @@ public class Run {
 
     static SuperChampion champion;
     public static void main(String[] args) {
-        heroSelect();
-
         // testing code for the main menu
-
+        Scanner in = new Scanner(System.in);
+        System.out.println("***************SWINGY***************");
+        System.out.println("Would you like to CREATE NEW HERO[new] or LOAD HERO[load]");
+        String choice = in.nextLine();
+        if (choice.equals("new")) {
+            heroSelect();
+        } else if(choice.equals("load")) {
+            System.out.println("You currently have no save files");
+        }
     }
 
     // this method allows the user to create their champion [might add this to a separate input class].
     public static void heroSelect() {
+        Champion_Warrior baseWarrior = new Champion_Warrior();
+        Champion_Elf baseElf = new Champion_Elf();
+        Champion_Mage baseMage = new Champion_Mage();
         Scanner in = new Scanner(System.in);
         System.out.println("Choose ONE of the following hero classes: Warrior; Elf; Mage");
+        System.out.println("Warrior -  atk: " + baseWarrior.attack + "  def: " + baseWarrior.defense + "  HP: " + baseWarrior.hitPoints);
+        System.out.println("Elf -  atk: " + baseElf.attack + "  def: " + baseElf.defense + "  HP: " + baseElf.hitPoints);
+        System.out.println("Mage -  atk: " + baseMage.attack + "  def: " + baseMage.defense + "  HP: " + baseMaged.hitPoints);
         String s = in.nextLine();
         if(s.equals("Warrior")) {
             champion = new Champion_Warrior();
