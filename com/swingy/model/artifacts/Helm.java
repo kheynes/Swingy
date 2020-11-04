@@ -1,8 +1,10 @@
 package com.swingy.model.artifacts;
 
 public class Helm {
-
-    // helm that will be dropped to upgrade hero helm
-    public String name = "Upgraded Helm";
-    public int hitPointsIncrease;
+    public String name;
+    public int hitPointsBoost;
+    public Helm(String Hname, int hp) {
+        name = Hname;
+        hitPointsBoost = hp;
+    }
 }
