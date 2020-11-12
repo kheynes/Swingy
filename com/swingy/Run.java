@@ -2,12 +2,14 @@ package com.swingy;
 
 import com.swingy.model.artifacts.*;
 import com.swingy.model.characters.*;
+import com.swingy.model.*;
 import java.util.Scanner;
 
 public class Run {
     // for now just running scripts to test classes
 
     static SuperChampion champion;
+    static Map map;
     public static void main(String[] args) {
         // testing code for the main menu
         Scanner in = new Scanner(System.in);
@@ -16,6 +18,9 @@ public class Run {
         String choice = in.nextLine();
         if (choice.equals("new")) {
             heroSelect();
+            map = new Map(champion);
+            System.out.println("This is the current x coordinate for the champion: " + champion.x);
+            System.out.println("This is the current y coordinate for the champion: " + champion.y);
         } else if(choice.equals("load")) {
             System.out.println("You currently have no save files");
         }
@@ -30,7 +35,7 @@ public class Run {
         System.out.println("Choose ONE of the following hero classes: Warrior; Elf; Mage");
         System.out.println("Warrior -  atk: " + baseWarrior.attack + "  def: " + baseWarrior.defense + "  HP: " + baseWarrior.hitPoints);
         System.out.println("Elf -  atk: " + baseElf.attack + "  def: " + baseElf.defense + "  HP: " + baseElf.hitPoints);
-        System.out.println("Mage -  atk: " + baseMage.attack + "  def: " + baseMage.defense + "  HP: " + baseMaged.hitPoints);
+        System.out.println("Mage -  atk: " + baseMage.attack + "  def: " + baseMage.defense + "  HP: " + baseMage.hitPoints);
         String s = in.nextLine();
         if(s.equals("Warrior")) {
             champion = new Champion_Warrior();

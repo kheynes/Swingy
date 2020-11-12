@@ -6,4 +6,6 @@ public class SuperVillain {
     public String villainName;
     public int hitPoints;
     public int attack;
+    public int x;
+    public int y;
 }

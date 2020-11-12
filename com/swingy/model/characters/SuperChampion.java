@@ -13,6 +13,8 @@ public class SuperChampion {
     public int attack;
     public int defense;
     public int hitPoints;
+    public int x;
+    public int y;
     public Armor armor;
     public Helm helm;
     public Weapon weapon;
