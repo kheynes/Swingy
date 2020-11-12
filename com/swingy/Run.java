@@ -19,8 +19,6 @@ public class Run {
         if (choice.equals("new")) {
             heroSelect();
             map = new Map(champion);
-            System.out.println("This is the current x coordinate for the champion: " + champion.x);
-            System.out.println("This is the current y coordinate for the champion: " + champion.y);
         } else if(choice.equals("load")) {
             System.out.println("You currently have no save files");
         }
