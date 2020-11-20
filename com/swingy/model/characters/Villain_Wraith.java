@@ -5,13 +5,13 @@ import java.util.Random;
 
 public class Villain_Wraith extends SuperVillain {
     Random rand = new Random();
-    int increaseDefense = rand.nextInt(4);
+    int increaseHP = rand.nextInt(10) + 1;
     public Villain_Wraith() {
         villainName = "Wraith";
         artifact = "Upgraded Helm";
         drop = rand.nextInt(2);
         hitPoints = 20;
         attack = 15;
-        armor = new Armor(artifact, increaseDefense);
+        helm = new Helm (artifact, increaseHP);
     }
 }

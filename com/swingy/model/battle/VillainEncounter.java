@@ -26,7 +26,20 @@ public class VillainEncounter {
             } else if (villain.hitPoints <= 0) {
                 System.out.println("You defeated the villain!");
                 if (villain.drop == 1) {
-                    System.out.println ("The " + villain.villainName + " dropped an " + villain.armor.name);
+                    System.out.println ("The " + villain.villainName + " dropped an " + villain.artifact);
+                    if (villain.artifact.equals("Upgraded Armor")) {
+                        System.out.println("Defence before: " + champion.defense);
+                        champion.defense= champion.defense + villain.armor.defenseBoost;
+                        System.out.println("Defence after: " + champion.defense);
+                    } else if (villain.artifact.equals("Upgraded Helm")) {
+                        System.out.println("HP before: " + champion.hitPoints);
+                        champion.hitPoints = champion.hitPoints + villain.helm.hitPointsBoost;
+                        System.out.println("HP after: " + champion.hitPoints);
+                    } else if (villain.artifact.equals("Upgraded Weapon")) {
+                        System.out.println("AD before: " + champion.attack);
+                        champion.attack = champion.attack + villain.weapon.attackBoost;
+                        System.out.println("AD after: " + champion.attack);
+                    }
                 }
             }
         }

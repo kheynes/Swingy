@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Villain_Dragon extends SuperVillain {
     Random rand = new Random();
-    int increaseDefense = rand.nextInt(4);
+    int increaseDefense = rand.nextInt(2) + 1;
     public Villain_Dragon() {
         villainName = "Dragon";
         artifact = "Upgraded Armor";
