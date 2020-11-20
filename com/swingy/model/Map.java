@@ -77,7 +77,11 @@ public class Map {
                 }
                 for (SuperVillain vil : villains) {
                     if (i == vil.y && j == vil.x) {
-                        map[i][j] = 1;
+                        if(map[i][j] == 2) {
+
+                        } else {
+                            map[i][j] = 1;
+                        }
                     } else if (map[i][j] == 1 || map[i][j] == 2) {
                     } else {
                         map[i][j] = 0;
@@ -88,6 +92,7 @@ public class Map {
     }
 
     public void printMap() {
+        System.out.println("\n");
         for (int i=0; i < size; i++) {
             for (int j=0; j < size ; j++) {
                 System.out.print(map[i][j] + " ");
@@ -106,7 +111,11 @@ public class Map {
 
     public void encounter(SuperChampion champion) {
         if (map[champion.y][champion.x] == 1){
-            encounter = new VillainEncounter(champion);
+            for (SuperVillain vil: villains) {
+                if(vil.y == champion.y && vil.x == champion.x) {
+                    encounter = new VillainEncounter(champion, vil);
+                }
+            }
         }
     }
 }
