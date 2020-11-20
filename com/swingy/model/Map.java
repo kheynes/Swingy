@@ -11,6 +11,7 @@ public class Map {
     static SuperVillain villain;
     static VillainEncounter encounter;
     ArrayList<SuperVillain> villains = new ArrayList<SuperVillain>();
+    ArrayList<SuperVillain> toRemove = new ArrayList<SuperVillain>();
 
     public Map(SuperChampion champion) {
         size = (champion.level - 1) * 5 + 10 - (champion.level % 2);
@@ -114,8 +115,12 @@ public class Map {
             for (SuperVillain vil: villains) {
                 if(vil.y == champion.y && vil.x == champion.x) {
                     encounter = new VillainEncounter(champion, vil);
+                    if(vil.hitPoints <= 0){
+                        toRemove.add(vil);
+                    }
                 }
             }
+            villains.removeAll(toRemove);
         }
     }
 }

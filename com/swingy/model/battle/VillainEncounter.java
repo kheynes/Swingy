@@ -25,6 +25,9 @@ public class VillainEncounter {
                 System.out.println("<YOU ARE DEAD!>");
             } else if (villain.hitPoints <= 0) {
                 System.out.println("You defeated the villain!");
+                if (villain.drop == 1) {
+                    System.out.println ("The " + villain.villainName + " dropped an " + villain.armor.name);
+                }
             }
         }
     }
