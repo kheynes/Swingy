@@ -10,6 +10,6 @@ public class Champion_Elf extends SuperChampion {
         experience = 0;
         attack = 5;
         defense = 10;
-        hitPoints = 2;
+        hitPoints = 50;
     }
 }

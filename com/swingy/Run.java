@@ -66,25 +66,45 @@ public class Run {
         String s = in.nextLine();
 
         if(s.equals("north")) {
-            champion.y = champion.y -1;
+            if(champion.y - 1 < 0) {
+                map = new Map(champion);
+                System.out.println("######## NEW MAP ########");
+            } else {
+                champion.y = champion.y - 1;
+            }
             map.encounter(champion);
             map.resetMap();
             map.updateMap(champion);
             map.printMap();
         } else if(s.equals("east")) {
-            champion.x = champion.x +1;
+            if(champion.x + 1 >= map.size) {
+                map = new Map(champion);
+                System.out.println("######## NEW MAP ########");
+            } else {
+                champion.x = champion.x + 1;
+            }
             map.encounter(champion);
             map.resetMap();
             map.updateMap(champion);
             map.printMap();
         } else if(s.equals("south")) {
-            champion.y = champion.y +1;
+            if(champion.y + 1 >= map.size) {
+                map = new Map(champion);
+                System.out.println("######## NEW MAP ########");
+            } else {
+                champion.y = champion.y + 1;
+            }
             map.encounter(champion);
             map.resetMap();
             map.updateMap(champion);
             map.printMap();
         } else if(s.equals("west")) {
-            champion.x = champion.x -1;
+            if(champion.x - 1 < 0) {
+                map = new Map(champion);
+                System.out.println("######## NEW MAP ########");
+            } else {
+                champion.x = champion.x - 1;
+            }
             map.encounter(champion);
             map.resetMap();
             map.updateMap(champion);
