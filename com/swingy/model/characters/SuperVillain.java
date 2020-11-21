@@ -12,6 +12,7 @@ public class SuperVillain {
     public int attack;
     public int x;
     public int y;
+    public int experienceDrop;
     public Armor armor;
     public Helm helm;
     public Weapon weapon;

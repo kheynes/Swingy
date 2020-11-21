@@ -19,8 +19,11 @@ public class Run {
         if (choice.equals("new")) {
             heroSelect();
             map = new Map(champion);
-            while(true) {
+            while(champion.hitPoints > 0) {
                 championMove(champion, map);
+            }
+            if(champion.hitPoints <= 0) {
+                System.out.println("GAME OVER");
             }
         } else if(choice.equals("load")) {
             System.out.println("You currently have no save files");
@@ -43,25 +46,16 @@ public class Run {
             System.out.println("Enter a name for your champion: ");
             champion.heroName = in.nextLine();
             System.out.println("Welcome to the game " + champion.heroName + " the warrior!");
-            System.out.println("Your armour stats are: " + champion.armor.name + " " + champion.armor.defenseBoost + " stat boost");
-            System.out.println("Your helm stats are: " + champion.helm.name + " " + champion.helm.hitPointsBoost + " stat boost");
-            System.out.println("Your weapon stats are: " + champion.weapon.name + " " + champion.weapon.attackBoost + " stat boost");
         } else if(s.equals("Elf")) {
             champion = new Champion_Elf();
             System.out.println("Enter a name for your champion: ");
             champion.heroName = in.nextLine();
             System.out.println("Welcome to the game " + champion.heroName + " the elf!");
-            System.out.println("Your armour stats are: " + champion.armor.name + " " + champion.armor.defenseBoost + " stat boost");
-            System.out.println("Your helm stats are: " + champion.helm.name + " " + champion.helm.hitPointsBoost + " stat boost");
-            System.out.println("Your weapon stats are: " + champion.weapon.name + " " + champion.weapon.attackBoost + " stat boost");
         } else if(s.equals("Mage")) {
             champion = new Champion_Mage();
             System.out.println("Enter a name for your champion: ");
             champion.heroName = in.nextLine();
             System.out.println("Welcome to the game " + champion.heroName + " the mage!");
-            System.out.println("Your armour stats are: " + champion.armor.name + " " + champion.armor.defenseBoost + " stat boost");
-            System.out.println("Your helm stats are: " + champion.helm.name + " " + champion.helm.hitPointsBoost + " stat boost");
-            System.out.println("Your weapon stats are: " + champion.weapon.name + " " + champion.weapon.attackBoost + " stat boost");
         }
     }
 

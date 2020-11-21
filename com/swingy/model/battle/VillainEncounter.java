@@ -5,6 +5,7 @@ import com.swingy.model.characters.*;
 import com.swingy.model.*;
 import java.util.Scanner;
 import java.util.Random;
+import java.lang.Math;
 
 public class VillainEncounter {
     Scanner in = new Scanner(System.in);
@@ -25,20 +26,21 @@ public class VillainEncounter {
                 System.out.println("<YOU ARE DEAD!>");
             } else if (villain.hitPoints <= 0) {
                 System.out.println("You defeated the villain!");
+                champion.experience += villain.experienceDrop;
+                if (champion.experience >= champion.level * 1000 + ((champion.level-1)*(champion.level-1)) * 450) {
+                    champion.level += 1;
+                }
                 if (villain.drop == 1) {
                     System.out.println ("The " + villain.villainName + " dropped an " + villain.artifact);
                     if (villain.artifact.equals("Upgraded Armor")) {
-                        System.out.println("Defence before: " + champion.defense);
                         champion.defense= champion.defense + villain.armor.defenseBoost;
-                        System.out.println("Defence after: " + champion.defense);
+                        System.out.println("You gain " + villain.armor.defenseBoost + " defense points!");
                     } else if (villain.artifact.equals("Upgraded Helm")) {
-                        System.out.println("HP before: " + champion.hitPoints);
                         champion.hitPoints = champion.hitPoints + villain.helm.hitPointsBoost;
-                        System.out.println("HP after: " + champion.hitPoints);
+                        System.out.println("You gain " + villain.helm.hitPointsBoost + " hit points!");
                     } else if (villain.artifact.equals("Upgraded Weapon")) {
-                        System.out.println("AD before: " + champion.attack);
                         champion.attack = champion.attack + villain.weapon.attackBoost;
-                        System.out.println("AD after: " + champion.attack);
+                        System.out.println("You gain " + villain.weapon.attackBoost + " attack points!");
                     }
                 }
             }

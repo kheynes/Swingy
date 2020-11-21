@@ -12,6 +12,7 @@ public class Villain_Wraith extends SuperVillain {
         drop = rand.nextInt(2);
         hitPoints = 20;
         attack = 15;
+        experienceDrop = 100;
         helm = new Helm (artifact, increaseHP);
     }
 }

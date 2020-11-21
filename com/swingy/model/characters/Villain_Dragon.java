@@ -12,6 +12,7 @@ public class Villain_Dragon extends SuperVillain {
         drop = rand.nextInt(2);
         hitPoints = 30;
         attack = 15;
+        experienceDrop = 200;
         armor = new Armor(artifact, increaseDefense);
     }
 }

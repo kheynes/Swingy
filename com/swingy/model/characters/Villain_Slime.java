@@ -12,6 +12,7 @@ public class Villain_Slime extends SuperVillain {
         drop = rand.nextInt(2);
         hitPoints = 10;
         attack = 7;
+        experienceDrop = 50;
         weapon = new Weapon(artifact, increaseAttack);
     }
 }

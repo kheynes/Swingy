@@ -8,10 +8,7 @@ public class Champion_Warrior extends SuperChampion {
         level = 1;
         experience = 0;
         attack = 8;
-        defense = 8;
+        defense = 12;
         hitPoints = 50;
-        armor = new Armor("Warrior armor", 0);
-        helm = new Helm("Warrior helm", 0);
-        weapon = new Weapon("Long Sword", 0);
     }
 }

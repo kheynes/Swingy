@@ -9,10 +9,7 @@ public class Champion_Elf extends SuperChampion {
         level = 1;
         experience = 0;
         attack = 5;
-        defense = 5;
-        hitPoints = 50;
-        armor = new Armor("Elf armor", 0);
-        helm = new Helm("Elf helm", 0);
-        weapon = new Weapon("Bow and Arrow", 0);
+        defense = 10;
+        hitPoints = 2;
     }
 }
