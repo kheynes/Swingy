@@ -1,11 +1,10 @@
 package com.swingy;
 
-import com.swingy.model.artifacts.*;
 import com.swingy.model.characters.*;
 import com.swingy.model.*;
 import java.util.Scanner;
 
-public class Run {
+public class Console {
     // for now just running scripts to test classes
 
     static SuperChampion champion;
@@ -70,9 +69,11 @@ public class Run {
                 map = new Map(champion);
                 System.out.println("######## NEW MAP ########");
             } else {
+                champion.storeX = champion.x;
+                champion.storeY = champion.y;
                 champion.y = champion.y - 1;
             }
-            map.encounter(champion);
+            map.encounter(champion, map);
             map.resetMap();
             map.updateMap(champion);
             map.printMap();
@@ -81,9 +82,11 @@ public class Run {
                 map = new Map(champion);
                 System.out.println("######## NEW MAP ########");
             } else {
+                champion.storeX = champion.x;
+                champion.storeY = champion.y;
                 champion.x = champion.x + 1;
             }
-            map.encounter(champion);
+            map.encounter(champion, map);
             map.resetMap();
             map.updateMap(champion);
             map.printMap();
@@ -92,9 +95,11 @@ public class Run {
                 map = new Map(champion);
                 System.out.println("######## NEW MAP ########");
             } else {
+                champion.storeX = champion.x;
+                champion.storeY = champion.y;
                 champion.y = champion.y + 1;
             }
-            map.encounter(champion);
+            map.encounter(champion, map);
             map.resetMap();
             map.updateMap(champion);
             map.printMap();
@@ -103,9 +108,11 @@ public class Run {
                 map = new Map(champion);
                 System.out.println("######## NEW MAP ########");
             } else {
+                champion.storeX = champion.x;
+                champion.storeY = champion.y;
                 champion.x = champion.x - 1;
             }
-            map.encounter(champion);
+            map.encounter(champion, map);
             map.resetMap();
             map.updateMap(champion);
             map.printMap();

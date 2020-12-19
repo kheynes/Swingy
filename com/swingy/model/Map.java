@@ -110,11 +110,11 @@ public class Map {
         }
     }
 
-    public void encounter(SuperChampion champion) {
+    public void encounter(SuperChampion champion, Map runMap) {
         if (map[champion.y][champion.x] == 1){
             for (SuperVillain vil: villains) {
                 if(vil.y == champion.y && vil.x == champion.x) {
-                    encounter = new VillainEncounter(champion, vil);
+                    encounter = new VillainEncounter(champion, vil, runMap);
                     if(vil.hitPoints <= 0){
                         toRemove.add(vil);
                     }

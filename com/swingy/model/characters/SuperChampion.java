@@ -1,11 +1,8 @@
 package com.swingy.model.characters;
 
-import com.swingy.model.artifacts.*;
-
 public class SuperChampion {
 
     // hero stats
-    // Ignoring artifacts for now
     public String heroName;
     public String heroClass;
     public int level;
@@ -15,4 +12,6 @@ public class SuperChampion {
     public int hitPoints;
     public int x;
     public int y;
+    public int storeX;
+    public int storeY;
 }
