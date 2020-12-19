@@ -76,7 +76,7 @@ public class Console {
             map.encounter(champion, map);
             map.resetMap();
             map.updateMap(champion);
-            map.printMap();
+            map.printMap(champion);
         } else if(s.equals("east")) {
             if(champion.x + 1 >= map.size) {
                 map = new Map(champion);
@@ -89,7 +89,7 @@ public class Console {
             map.encounter(champion, map);
             map.resetMap();
             map.updateMap(champion);
-            map.printMap();
+            map.printMap(champion);
         } else if(s.equals("south")) {
             if(champion.y + 1 >= map.size) {
                 map = new Map(champion);
@@ -102,7 +102,7 @@ public class Console {
             map.encounter(champion, map);
             map.resetMap();
             map.updateMap(champion);
-            map.printMap();
+            map.printMap(champion);
         } else if(s.equals("west")) {
             if(champion.x - 1 < 0) {
                 map = new Map(champion);
@@ -115,7 +115,7 @@ public class Console {
             map.encounter(champion, map);
             map.resetMap();
             map.updateMap(champion);
-            map.printMap();
+            map.printMap(champion);
         }
     }
 }

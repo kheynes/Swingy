@@ -67,7 +67,7 @@ public class Map {
              counter++;
         }
         updateMap(champion);
-        printMap();
+        printMap(champion);
     }
 
     public void updateMap(SuperChampion champion){
@@ -92,7 +92,11 @@ public class Map {
         }
     }
 
-    public void printMap() {
+    public void printMap(SuperChampion champion) {
+        System.out.println("\n");
+        System.out.println(champion.heroName + "(" + champion.heroClass + ")" + "\t\t\t" + "HP: " + champion.hitPoints);
+        System.out.println("Level " + champion.level +  "\t\t\t" + "Def: " + champion.defense);
+        System.out.println("Xp: " + champion.experience + "\t\t\t" + "Atk: " + champion.attack);
         System.out.println("\n");
         for (int i=0; i < size; i++) {
             for (int j=0; j < size ; j++) {

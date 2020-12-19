@@ -20,7 +20,7 @@ public class VillainEncounter {
             champion.y = champion.storeY;
             map.resetMap();
             map.updateMap(champion);
-            map.printMap();
+            map.printMap(champion);
         }  else if (choice.equals("run") && run == 0) {
             System.out.println("You try to run but the monster quickly blocks your path and engages in battle!");
             while (champion.hitPoints > 0 && villain.hitPoints > 0) {
