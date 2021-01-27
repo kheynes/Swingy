@@ -2,15 +2,16 @@ package com.swingy;
 
 import com.swingy.model.characters.*;
 import com.swingy.model.*;
+import com.swingy.controller.GameState;
+
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Console {
-    // for now just running scripts to test classes
 
     static SuperChampion champion;
     static Map map;
-    public static void main(String[] args) {
-        // testing code for the main menu
+    public static void main(String[] args) throws IOException{
         Scanner in = new Scanner(System.in);
         System.out.println("***************SWINGY***************");
         System.out.println("Would you like to CREATE NEW HERO[new] or LOAD HERO[load]");
@@ -30,7 +31,7 @@ public class Console {
     }
 
     // this method allows the user to create their champion [might add this to a separate input class].
-    public static void heroSelect() {
+    public static void heroSelect() throws IOException {
         Champion_Warrior baseWarrior = new Champion_Warrior();
         Champion_Elf baseElf = new Champion_Elf();
         Champion_Mage baseMage = new Champion_Mage();
@@ -56,9 +57,11 @@ public class Console {
             champion.heroName = in.nextLine();
             System.out.println("Welcome to the game " + champion.heroName + " the mage!");
         }
+
+        GameState.saveState(champion);
     }
 
-    public static void championMove(SuperChampion champion, Map map) {
+    public static void championMove(SuperChampion champion, Map map) throws IOException{
         System.out.println("Choose a direction to move: north; east; south; west");
         Scanner in = new Scanner(System.in);
 
@@ -117,5 +120,7 @@ public class Console {
             map.updateMap(champion);
             map.printMap(champion);
         }
+
+        GameState.saveState(champion);
     }
 }

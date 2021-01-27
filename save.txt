@@ -1,0 +1,9 @@
+Name Morgana
+Class Mage
+Level 1
+XP 0
+ATK 6
+DEF 15
+HP 50
+POSX 0
+POSY 0
