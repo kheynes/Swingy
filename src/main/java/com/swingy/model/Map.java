@@ -3,6 +3,7 @@ package com.swingy.model;
 import com.swingy.model.characters.*;
 import com.swingy.controller.VillainEncounter;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -124,7 +125,7 @@ public class Map {
         }
     }
 
-    public void encounter(SuperChampion champion, Map runMap) {
+    public void encounter(SuperChampion champion, Map runMap) throws IOException {
         if (map[champion.y][champion.x] == 1){
             for (SuperVillain vil: villains) {
                 if(vil.y == champion.y && vil.x == champion.x) {

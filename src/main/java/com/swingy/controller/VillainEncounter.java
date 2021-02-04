@@ -1,15 +1,21 @@
 package com.swingy.controller;
 
 import com.swingy.model.characters.*;;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.Random;
 import com.swingy.model.*;
+import com.swingy.view.Console;
 
 public class VillainEncounter {
+    public static final String RED = "\u001B[31m";
+    public static final String RESET = "\u001B[0m";
     Scanner in = new Scanner(System.in);
     Random rand = new Random();
+    Map newMap;
     private int run;
-    public VillainEncounter(SuperChampion champion, SuperVillain villain, Map map) {
+    public VillainEncounter(SuperChampion champion, SuperVillain villain, Map map) throws IOException {
+
         System.out.println("You have encountered a " + villain.villainName + "!");
         System.out.println("HP: " +villain.hitPoints);
         System.out.println("What will you do ? Fight(fight) or Run(run)");
@@ -78,6 +84,20 @@ public class VillainEncounter {
                     }
                 }
             }
+        } else {
+            System.out.println(RED + "Please enter a valid action" + RESET);
+            newMap = map;
+            map.encounter(champion, map);
+            map.resetMap();
+            map.updateMap(champion);
+            map.printMap(champion);
+            while(champion.hitPoints > 0) {
+                Console.championMove(champion, map);
+            }
+            if(champion.hitPoints <= 0) {
+                System.out.println("GAME OVER");
+            }
+
         }
     }
 

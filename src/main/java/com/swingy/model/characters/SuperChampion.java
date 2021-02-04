@@ -1,10 +1,16 @@
 package com.swingy.model.characters;
 
+import javax.validation.constraints.*;
+
 public class SuperChampion {
 
-    // hero stats
-    public String heroName;
-    public String heroClass;
+    @NotNull
+    @NotBlank
+    public String heroName = null;
+
+    @NotNull
+    @NotBlank
+    public String heroClass = null;
     public int level;
     public int experience;
     public int attack;

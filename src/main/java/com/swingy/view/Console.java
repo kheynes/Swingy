@@ -6,9 +6,11 @@ import com.swingy.controller.GameState;
 
 import java.io.*;
 import java.util.Scanner;
+import javax.validation.constraints.*;
 
 public class Console {
-
+    public static final String RED = "\u001B[31m";
+    public static final String RESET = "\u001B[0m";
     static SuperChampion champion;
     static Map map;
     public static void main(String[] args) throws IOException {
@@ -44,18 +46,43 @@ public class Console {
         if(s.equals("Warrior")) {
             champion = new Champion_Warrior();
             System.out.println("Enter a name for your champion: ");
-            champion.heroName = in.nextLine();
+            String name = in.nextLine();
+            while(name.equals("")) {
+                System.out.println("Enter a name for your champion: ");
+                name = in.nextLine();
+            }
+            champion.heroName = name;
             System.out.println("Welcome to the game " + champion.heroName + " the warrior!");
         } else if(s.equals("Elf")) {
             champion = new Champion_Elf();
             System.out.println("Enter a name for your champion: ");
-            champion.heroName = in.nextLine();
+            String name = in.nextLine();
+            while(name.equals("")) {
+                System.out.println("Enter a name for your champion: ");
+                name = in.nextLine();
+            }
+            champion.heroName = name;
             System.out.println("Welcome to the game " + champion.heroName + " the elf!");
         } else if(s.equals("Mage")) {
             champion = new Champion_Mage();
             System.out.println("Enter a name for your champion: ");
-            champion.heroName = in.nextLine();
+            String name = in.nextLine();
+            while(name.equals("")) {
+                System.out.println("Enter a name for your champion: ");
+                name = in.nextLine();
+            }
+            champion.heroName = name;
             System.out.println("Welcome to the game " + champion.heroName + " the mage!");
+        } else {
+            System.out.println(RED + "Please enter a valid champion class" + RESET);
+            heroSelect();
+            map = new Map(champion);
+            while(champion.hitPoints > 0) {
+                championMove(champion, map);
+            }
+            if(champion.hitPoints <= 0) {
+                System.out.println("GAME OVER");
+            }
         }
 
         GameState.saveState(champion);
@@ -166,6 +193,11 @@ public class Console {
                 champion.x = champion.x - 1;
             }
             map.encounter(champion, map);
+            map.resetMap();
+            map.updateMap(champion);
+            map.printMap(champion);
+        } else {
+            System.out.println(RED + "Please enter a valid direction" + RESET);
             map.resetMap();
             map.updateMap(champion);
             map.printMap(champion);
