@@ -1,7 +1,8 @@
 package com.swingy.model;
 
 import com.swingy.model.characters.*;
-import com.swingy.model.battle.*;
+import com.swingy.controller.VillainEncounter;
+
 import java.util.ArrayList;
 import java.util.Random;
 

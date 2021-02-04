@@ -1,0 +1,15 @@
+com/swingy/model/artifacts/Helm.class
+com/swingy/model/artifacts/Armor.class
+com/swingy/model/characters/SuperVillain.class
+com/swingy/model/characters/Villain_Slime.class
+com/swingy/model/characters/Champion_Warrior.class
+com/swingy/model/characters/SuperChampion.class
+com/swingy/model/characters/Villain_Wraith.class
+com/swingy/controller/VillainEncounter.class
+com/swingy/model/characters/Villain_Dragon.class
+com/swingy/controller/GameState.class
+com/swingy/model/characters/Champion_Elf.class
+com/swingy/model/Map.class
+com/swingy/model/artifacts/Weapon.class
+com/swingy/model/characters/Champion_Mage.class
+com/swingy/view/Console.class

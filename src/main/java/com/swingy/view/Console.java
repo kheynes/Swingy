@@ -1,20 +1,21 @@
-package com.swingy;
+package com.swingy.view;
 
 import com.swingy.model.characters.*;
 import com.swingy.model.*;
 import com.swingy.controller.GameState;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 public class Console {
 
     static SuperChampion champion;
     static Map map;
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException {
         Scanner in = new Scanner(System.in);
         System.out.println("***************SWINGY***************");
         System.out.println("Would you like to CREATE NEW HERO[new] or LOAD HERO[load]");
+        System.out.println("(starting a new game results in loss previous progress)");
         String choice = in.nextLine();
         if (choice.equals("new")) {
             heroSelect();
@@ -26,11 +27,10 @@ public class Console {
                 System.out.println("GAME OVER");
             }
         } else if(choice.equals("load")) {
-            System.out.println("You currently have no save files");
+                selectOldHero();
         }
     }
 
-    // this method allows the user to create their champion [might add this to a separate input class].
     public static void heroSelect() throws IOException {
         Champion_Warrior baseWarrior = new Champion_Warrior();
         Champion_Elf baseElf = new Champion_Elf();
@@ -59,6 +59,56 @@ public class Console {
         }
 
         GameState.saveState(champion);
+    }
+
+    public static void selectOldHero() throws IOException {
+        try {
+            Scanner in = new Scanner(System.in);
+            BufferedReader reader = new BufferedReader(new FileReader("src/main/java/com/swingy/save.txt"));
+            String line = null;
+            try {
+                line = reader.readLine();
+                System.out.println("#### SAVED CHAMPION ####");
+                while (!line.contains("POSX")) {
+                    String stat = line.split(" ")[0];
+                    String value = line.split(" ")[1];
+                    System.out.print(stat);
+                    System.out.print(": ");
+                    System.out.print(value);
+                    System.out.print("   ");
+                    line = reader.readLine();
+                }
+                System.out.print(("\n"));
+                System.out.println("Would you like to play with this champion [yes/no]?");
+                String choice = in.nextLine();
+                if (choice.equals("no"))
+                    System.exit(0);
+                else if (choice.equals("yes"))
+                    GameState.loadState();
+                else
+                    System.exit(0);
+            } catch (Exception e) {
+                System.out.println("You have no progress saved yet! Please make a new champion :).");
+                heroSelect();
+                map = new Map(champion);
+                while(champion.hitPoints > 0) {
+                    championMove(champion, map);
+                }
+                if(champion.hitPoints <= 0) {
+                    System.out.println("GAME OVER");
+                }
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("You have no progress saved yet! Please make a new champion :).");
+            heroSelect();
+            map = new Map(champion);
+            while(champion.hitPoints > 0) {
+                championMove(champion, map);
+            }
+            if(champion.hitPoints <= 0) {
+                System.out.println("GAME OVER");
+            }
+        }
     }
 
     public static void championMove(SuperChampion champion, Map map) throws IOException{

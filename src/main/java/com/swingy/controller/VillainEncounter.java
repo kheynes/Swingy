@@ -1,4 +1,4 @@
-package com.swingy.model.battle;
+package com.swingy.controller;
 
 import com.swingy.model.characters.*;;
 import java.util.Scanner;
@@ -16,11 +16,13 @@ public class VillainEncounter {
         String choice = in.nextLine();
         run = rand.nextInt(2);
         if(choice.equals("run") && run == 1) {
+
             champion.x = champion.storeX;
             champion.y = champion.storeY;
             map.resetMap();
             map.updateMap(champion);
             map.printMap(champion);
+            System.out.println("You ran successfully and escaped the monster");
         }  else if (choice.equals("run") && run == 0) {
             System.out.println("You try to run but the monster quickly blocks your path and engages in battle!");
             while (champion.hitPoints > 0 && villain.hitPoints > 0) {
